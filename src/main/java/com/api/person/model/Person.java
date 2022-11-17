@@ -20,5 +20,6 @@ public class Person {
 
     @Column(name = "nationality")
     private String nationality;
+    //test
 
 }
