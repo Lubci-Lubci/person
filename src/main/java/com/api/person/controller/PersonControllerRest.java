@@ -37,9 +37,10 @@ public class PersonControllerRest {
             if (lastName == null){
                 persons = personService.getAllPersons();
                 // I HAVE TO RE DO AND FINISH THIS ELSE create getPersonByLastName
-//            }else {
+            }else {
+                System.out.println("");
 //                persons = personService.getPersonByLastName;
-//            }
+            }
 
             if (persons.isEmpty()){
                 return new ResponseEntity<>(HttpStatus.NO_CONTENT);
