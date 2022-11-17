@@ -18,17 +18,25 @@ public class Person {
     @Column(name = "age")
     private int age;
 
+    @Column(name = "country")
+    private String country;
+
     @Column(name = "nationality")
     private String nationality;
+
+    @Column(name = "employed")
+    private boolean employed;
 
     public Person() {
     }
 
-    public Person(String firstName, String lastName, int age, String nationality) {
+    public Person(String firstName, String lastName, int age, String country, String nationality, boolean isEmployed) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.age = age;
+        this.country= country;
         this.nationality = nationality;
+        this.employed = isEmployed;
     }
 
     public long getId() {
@@ -69,5 +77,34 @@ public class Person {
 
     public void setNationality(String nationality) {
         this.nationality = nationality;
+    }
+
+    public String getCountry() {
+        return country;
+    }
+
+    public void setCountry(String country) {
+        this.country = country;
+    }
+
+    public boolean isEmployed() {
+        return employed;
+    }
+
+    public void setEmployed(boolean employed) {
+        this.employed = employed;
+    }
+
+    @Override
+    public String toString() {
+        return "Person{" +
+                "id=" + id +
+                ", firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", age=" + age +
+                ", country='" + country + '\'' +
+                ", nationality='" + nationality + '\'' +
+                ", employed=" + employed +
+                '}';
     }
 }
