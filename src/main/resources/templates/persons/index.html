@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
+    <head>
+        <meta charset="UTF-8">
+        <title>Person DB App</title>
+    </head>
+    <body>
+        <h1>Persons DB system</h1>
+        <h2>Home</h2>
+        <p th:if="${listOfPersons.isEmpty()}">
+            List of persons is empty!
+        </p>
+        <table th:unless="${listOfPersons.isEmpty}">
+            <thead>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Age</th>
+                <th>Country</th>
+                <th>Nationality</th>
+            </thead>
+            <tbody>
+                <tr th:each="person : ${listOfPersons}"></tr>
+                    <td th:text="${person.firstName}"></td>
+                    <td th:text="${person.lastName}"></td>
+                    <td th:text="${person.age}"></td>
+                    <td th:text="${person.country}"></td>
+                    <td th:text="${person.nationality}"></td>
+            </tbody>
+        </table>
+    </body>
+</html>

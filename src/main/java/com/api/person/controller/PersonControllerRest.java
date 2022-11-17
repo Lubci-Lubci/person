@@ -52,6 +52,25 @@ public class PersonControllerRest {
 
     }
 
+    @PutMapping("/persons/{id}")
+    public ResponseEntity<Person> updatePerson(@PathVariable("id") long id, @RequestBody Person person) {
+        Person _person = personService.updatePersonById(id, person);
 
+        if(_person != null) {
+            return new ResponseEntity<>(personService.savePerson(_person), HttpStatus.OK);
+        } else {
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
+    }
+
+    @DeleteMapping("/persons/{id}")
+    public ResponseEntity<HttpStatus> deletePerson(@PathVariable("id") long id) {
+        try {
+            personService.deletePersonById(id);
+            return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+        } catch (Exception e) {
+            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+    }
 
 }
