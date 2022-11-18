@@ -53,7 +53,7 @@ public class PersonControllerRest {
     }
 
     @PutMapping("/persons/{id}")
-    public ResponseEntity<Person> updatePerson(@PathVariable("id") long id, @RequestBody Person person) {
+    public ResponseEntity<Person> updatePerson(@PathVariable(value = "id") long id, @RequestBody Person person) {
         Person _person = personService.updatePersonById(id, person);
 
         if(_person != null) {
@@ -64,7 +64,7 @@ public class PersonControllerRest {
     }
 
     @DeleteMapping("/persons/{id}")
-    public ResponseEntity<HttpStatus> deletePerson(@PathVariable("id") long id) {
+    public ResponseEntity<HttpStatus> deletePerson(@PathVariable(value = "id") long id) {
         try {
             personService.deletePersonById(id);
             return new ResponseEntity<>(HttpStatus.NO_CONTENT);
