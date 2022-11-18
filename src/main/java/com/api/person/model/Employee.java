@@ -1,5 +1,7 @@
 package com.api.person.model;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 import javax.persistence.*;
 import java.util.Date;
 
@@ -18,7 +20,13 @@ public class Employee {
     private boolean active;
 
     @Column(name = "hire_date")
+    @DateTimeFormat(pattern = "dd-MM-yyyy")
     private Date hireDate;
+
+    @OneToOne(fetch = FetchType.LAZY)
+    @MapsId
+    @JoinColumn(name = "person_id")
+    private Person person;
 
     public Employee() {
     }
