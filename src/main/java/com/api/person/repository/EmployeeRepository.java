@@ -16,5 +16,6 @@ public interface EmployeeRepository extends JpaRepository<Employee, Long> {
     @Transactional
     void deleteByEmployeeId(long employeeId);
 
-
+    @Transactional
+    void deleteByPersonId(long personId);
 }
