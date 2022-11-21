@@ -7,10 +7,11 @@
     <body>
         <h1>Persons DB system</h1>
         <h2>Persons</h2>
-        <p th:if="${listOfPersons.isEmpty()}">
-            List of persons is empty!
+        <a th:href="@{/persons/showNewPersonsForm}"><button>Add Person</button></a>
+        <p th:if="${listOfPersons.size() < 1}">
+            <span>List of persons is empty!</span>
         </p>
-        <table th:unless="${listOfPersons.isEmpty}">
+        <table th:unless="${listOfPersons.size() <1}">
             <thead>
                 <th>First Name</th>
                 <th>Last Name</th>

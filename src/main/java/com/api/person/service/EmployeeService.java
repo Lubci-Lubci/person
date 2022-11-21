@@ -7,7 +7,7 @@ import org.springframework.stereotype.Service;
 @Service
 public interface EmployeeService {
     Employee saveEmployee(Employee employee);
-    Person getEmployeeById(long id);
+    Employee getEmployeeById(long id);
     void deleteEmployeeById(long id);
     boolean existsEmployeeById(long id);
     void deleteByPersonId(long personId);

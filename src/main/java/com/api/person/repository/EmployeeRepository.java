@@ -10,11 +10,11 @@ import javax.transaction.Transactional;
 @Repository
 public interface EmployeeRepository extends JpaRepository<Employee, Long> {
 
-    @Transactional
-    void deleteById(long id);
-
-    @Transactional
-    void deleteByEmployeeId(long employeeId);
+//    @Transactional
+//    void deleteById(long id);
+//
+//    @Transactional
+//    void deleteByEmployeeId(long employeeId);
 
     @Transactional
     void deleteByPersonId(long personId);
