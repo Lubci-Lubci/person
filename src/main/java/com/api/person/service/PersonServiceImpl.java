@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class PersonServiceImpl implements PersonService{
@@ -43,5 +44,19 @@ public class PersonServiceImpl implements PersonService{
     @Override
     public void deletePersonById(long id) {
         personRepository.deletePersonById(id);
+    }
+
+    @Override
+    public Person getPersonById(long id) {
+        Optional<Person> optional = this.personRepository.findById(id);
+        Person person = null;
+
+        if(optional.isPresent()){
+            person = optional.get();
+        }else{
+            throw new RuntimeException("Employee with id " + id + " was not found");
+        }
+
+        return person;
     }
 }

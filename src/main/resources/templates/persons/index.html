@@ -11,7 +11,7 @@
         <p th:if="${listOfPersons.size() < 1}">
             <span>List of persons is empty!</span>
         </p>
-        <table th:unless="${listOfPersons.size() <1}">
+        <table th:unless="${listOfPersons.size() < 1}">
             <thead>
                 <th>First Name</th>
                 <th>Last Name</th>
@@ -20,12 +20,17 @@
                 <th>Nationality</th>
             </thead>
             <tbody>
-                <tr th:each="person : ${listOfPersons}"></tr>
+                <tr th:each="person : ${listOfPersons}">
                     <td th:text="${person.firstName}"></td>
                     <td th:text="${person.lastName}"></td>
                     <td th:text="${person.age}"></td>
                     <td th:text="${person.country}"></td>
                     <td th:text="${person.nationality}"></td>
+                    <td>
+                        <a th:href="@{/persons/showFormForUpdate/{id}(id=${person.id})}">Update</a>
+                        <a th:href="@{/persons/showFormForDelete/{id}(id=${person.id})}">Delete</a>
+                    </td>
+                </tr>
             </tbody>
         </table>
     </body>

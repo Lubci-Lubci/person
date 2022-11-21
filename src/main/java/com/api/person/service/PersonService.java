@@ -14,6 +14,8 @@ public interface PersonService {
 
     void savePersonFS(Person person);   //method for full-stack
 
+    Person getPersonById(long id);
+
     Person updatePersonById(long id, Person person);
 
     void deletePersonById(long id);

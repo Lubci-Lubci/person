@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
+  <head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+  </head>
+  <body>
+    <h1>Persons DB system</h1>
+    <h2>Update Person</h2>
+    <form action="#" th:action="@{/persons/updatePerson}" th:object="${person}" method="post">
+         <span>
+           <label>First name:<br/></label>
+           <input type="text" th:field="*{firstName}" placeholder="Insert first name">
+           <!--            <p th:if="${#fields.hasErrors('firstName')}" th:errors="*{firstName}"></p>-->
+           <br/><br/>
+         </span>
+
+        <span>
+          <label>Last name:<br/></label>
+          <input type="text" th:field="*{lastName}" placeholder="Insert last name">
+        <!--            <p th:if="${#fields.hasErrors('lastName')}" th:errors="*{lastName}"></p>-->
+          <br/><br/>
+        </span>
+
+        <span>
+          <label>Age:<br/></label>
+          <input type="number" th:field="*{age}" placeholder="Insert age">
+        <!--            <p th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></p>-->
+          <br/><br/>
+        </span>
+
+        <span>
+          <label>Country:<br/></label>
+          <input type="text" th:field="*{country}" placeholder="Insert country">
+          <br/><br/>
+        </span>
+
+        <span>
+          <label>Nationality:<br/></label>
+          <input type="text" th:field="*{nationality}" placeholder="Insert nationality">
+          <br/><br/>
+        </span>
+
+      <span>
+        <label>Is employed?<br/></label>
+        <input type="checkbox" name="activeEmpChk" checked="checked">
+        <br/><br/>
+      </span>
+
+      <input type="hidden" th:field="*{id}">
+      <button type="submit">Save Person</button>
+        <hr>
+        <a th:href="@{/persons}">Back to Persons List</a>
+    </form>
+  </body>
+</html>
